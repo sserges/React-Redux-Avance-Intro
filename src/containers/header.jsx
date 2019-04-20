@@ -3,6 +3,18 @@ import * as actions from "../actions";
 import { connect } from "react-redux";
 
 class Header extends Component {
+  onClickAuthentification = () => {
+    this.props.setAuthentification(!this.props.isLoggedIn);
+  };
+
+  renderAuthentificationLabel = () => {
+    if (this.props.isLoggedIn) {
+      return "Déconnexion";
+    } else {
+      return "Connexion";
+    }
+  };
+
   render() {
     return (
       <div>
@@ -18,8 +30,12 @@ class Header extends Component {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Connexion
+            <a
+              className="nav-link"
+              href="#"
+              onClick={this.onClickAuthentification}
+            >
+              {this.renderAuthentificationLabel()}
             </a>
           </li>
         </ul>
@@ -29,7 +45,9 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    isLoggedIn: state.authentification.isLoggedIn
+  };
 };
 export default connect(
   mapStateToProps,
