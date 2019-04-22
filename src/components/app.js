@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import Header from "../containers/header";
 import Home from "../components/home";
+import TodoApp from "../components/todo-app";
 import Ressources from "../components/ressources";
 import RequireAuthentification from "../helpers/require-authentification";
 
@@ -14,7 +15,7 @@ export default class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={TodoApp} />
           <Route
             exact
             path="/ressources"
