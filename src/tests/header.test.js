@@ -21,6 +21,32 @@ describe("Test sur Header", () => {
         <Header />
       </RootTest>
     );
-    console.log(wrapper.debug());
+  });
+
+  it("Test que le libéllé du bouton connexion est bien 'connexion' puis 'déconnexion' après clique", () => {
+    const wrapper = mount(
+      <RootTest>
+        <Header />
+      </RootTest>
+    );
+
+    expect(
+      wrapper
+        .find("a")
+        .at(2)
+        .text()
+    ).toEqual("Connexion");
+    wrapper
+      .find("a")
+      .at(2)
+      .simulate("click");
+
+    expect(
+      wrapper
+        .find("a")
+        .at(2)
+        .text()
+    ).toEqual("Déconnexion");
+    // console.log(wrapper.debug());
   });
 });
