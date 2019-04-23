@@ -1,3 +1,6 @@
+import { createSelector } from "reselect";
+import lodash from "lodash";
+
 export const getIntegerList = state => {
   return state.ressource.ressourceList;
 };
@@ -18,3 +21,11 @@ const isPrimeNumber = value => {
   }
   return value > 1;
 };
+
+export const getSpecialNumberList = createSelector(
+  getContainsOneList,
+  getPrimeNumberList,
+  (containsOneList, primeNumbersList) => {
+    return lodash.intersection(containsOneList, primeNumbersList);
+  }
+);
