@@ -15,7 +15,7 @@ export default class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" component={TodoApp} />
+          <Route exact path="/" component={Ressources} />
           <Route
             exact
             path="/ressources"
