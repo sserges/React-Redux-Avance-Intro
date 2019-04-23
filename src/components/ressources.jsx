@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { addRessource } from "../actions";
+import {
+  getIntegerList,
+  getContainsOneList,
+  getPrimeNumberList
+} from "../selectors";
 
 class Ressources extends Component {
   renderRessource = ressources => {
@@ -24,8 +29,14 @@ class Ressources extends Component {
           Entiers
           <ul>{this.renderRessource(this.props.intergerRessources)}</ul>
         </div>
-        <div className="col">Contiennent "1" </div>
-        <div className="col"> Entiers premiers </div>
+        <div className="col">
+          Contiennent "1"
+          <ul>{this.renderRessource(this.props.containsOneRessources)}</ul>
+        </div>
+        <div className="col">
+          Entiers premiers
+          <ul>{this.renderRessource(this.props.primeRessources)}</ul>
+        </div>
         <div className="col"> Entiers premiers contenants "1"</div>
       </div>
     );
@@ -34,7 +45,9 @@ class Ressources extends Component {
 
 const mapStateToProps = state => {
   return {
-    intergerRessources: state.ressource.ressourceList
+    intergerRessources: getIntegerList(state),
+    containsOneRessources: getContainsOneList(state),
+    primeRessources: getPrimeNumberList(state)
   };
 };
 
