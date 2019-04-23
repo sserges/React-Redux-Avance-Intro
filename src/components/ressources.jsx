@@ -1,22 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { addRessources } from "../actions";
+import { addRessource } from "../actions";
 
 class Ressources extends Component {
+  renderRessource = ressources => {
+    return ressources.map(ressource => <li key={ressource}>{ressource}</li>);
+  };
+
   render() {
     return (
-      <div className="row">
+      <div className="row body_content">
         <div className="col">
           <button
             type="button"
-            onClick={() => this.props.addRessources()}
+            onClick={() => this.props.addRessource()}
             className="btn btn-raised btn-primary"
           >
             Ajouter un nombre
           </button>
         </div>
-        <div className="col">Entiers</div>
+        <div className="col">
+          Entiers
+          <ul>{this.renderRessource(this.props.intergerRessources)}</ul>
+        </div>
         <div className="col">Contiennent "1" </div>
         <div className="col"> Entiers premiers </div>
         <div className="col"> Entiers premiers contenants "1"</div>
@@ -26,10 +33,14 @@ class Ressources extends Component {
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    intergerRessources: state.ressource.ressourceList
+  };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  addRessource
+};
 
 export default connect(
   mapStateToProps,
