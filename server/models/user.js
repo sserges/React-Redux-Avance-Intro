@@ -7,6 +7,7 @@ const userSchema = new Schema({
   password: String
 });
 
+userSchema.set("autoIndex", false);
 const UserModel = mongoose.model("user", userSchema);
 
 module.exports = UserModel;
