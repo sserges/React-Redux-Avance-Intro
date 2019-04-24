@@ -8,11 +8,36 @@ class Header extends Component {
   //   this.props.setAuthentification(!this.props.isLoggedIn);
   // };
 
-  renderAuthentificationLabel = () => {
+  // renderAuthentificationLabel = () => {
+  //   if (this.props.isLoggedIn) {
+  //     return "Déconnexion";
+  //   } else {
+  //     return "Connexion";
+  //   }
+  // };
+
+  renderAuthentificationLink = () => {
     if (this.props.isLoggedIn) {
-      return "Déconnexion";
+      return (
+        <li className="nav-item">
+          <Link className="nav-link" to={"/signout"}>
+            Déconnexion
+          </Link>
+        </li>
+      );
     } else {
-      return "Connexion";
+      return [
+        <li key={1} className="nav-item">
+          <Link className="nav-link" to={"/signin"}>
+            Connexion
+          </Link>
+        </li>,
+        <li key={2} className="nav-item">
+          <Link className="nav-link" to={"/signup"}>
+            Inscription
+          </Link>
+        </li>
+      ];
     }
   };
 
@@ -30,11 +55,7 @@ class Header extends Component {
               Ressources
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to={"/signin"} className="nav-link" href="#">
-              {this.renderAuthentificationLabel()}
-            </Link>
-          </li>
+          {this.renderAuthentificationLink()}
         </ul>
       </div>
     );
