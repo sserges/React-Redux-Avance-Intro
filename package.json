@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
