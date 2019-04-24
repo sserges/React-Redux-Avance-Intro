@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
-  onClickAuthentification = () => {
-    this.props.setAuthentification(!this.props.isLoggedIn);
-  };
+  // onClickAuthentification = () => {
+  //   this.props.setAuthentification(!this.props.isLoggedIn);
+  // };
 
   renderAuthentificationLabel = () => {
     if (this.props.isLoggedIn) {
@@ -31,12 +31,7 @@ class Header extends Component {
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              to={"/signin"}
-              className="nav-link"
-              href="#"
-              onClick={this.onClickAuthentification}
-            >
+            <Link to={"/signin"} className="nav-link" href="#">
               {this.renderAuthentificationLabel()}
             </Link>
           </li>

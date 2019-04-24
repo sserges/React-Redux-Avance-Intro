@@ -7,7 +7,9 @@ import * as actions from "../actions";
 const FIELDS = { email: "email", password: "password" };
 
 class Signin extends Component {
-  handleSubmit() {}
+  handleSubmit = credentials => {
+    this.props.signinUser(credentials, this.props.history);
+  };
 
   render() {
     return (
