@@ -26,6 +26,16 @@ userSchema.pre("save", function(next) {
   });
 });
 
+userSchema.methods.isPasswordEqualTo = function(externalPassword, done) {
+  bcrypt.compare(externalPassword, this.password, function(err, isMatch) {
+    if (err) {
+      return done(err);
+    }
+
+    done(null, isMatch);
+  });
+};
+
 userSchema.set("autoIndex", false);
 const UserModel = mongoose.model("user", userSchema);
 
