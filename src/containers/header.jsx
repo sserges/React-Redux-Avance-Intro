@@ -31,13 +31,14 @@ class Header extends Component {
             </Link>
           </li>
           <li className="nav-item">
-            <a
+            <Link
+              to={"/signin"}
               className="nav-link"
               href="#"
               onClick={this.onClickAuthentification}
             >
               {this.renderAuthentificationLabel()}
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
