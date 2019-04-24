@@ -15,7 +15,7 @@ mongoose.connection
 
 const expressServer = express();
 expressServer.use(morgan("combined"));
-expressServer.use(bodyParser.json({ type: "*/" }));
+expressServer.use(bodyParser.json({ type: "*/*" }));
 
 router(expressServer);
 
