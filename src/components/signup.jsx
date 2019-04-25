@@ -12,7 +12,9 @@ const FIELDS = {
 };
 
 class Signup extends Component {
-  handleSubmit = formValues => {};
+  handleSubmit = formValues => {
+    this.props.signupUser(formValues, this.props.history);
+  };
 
   renderInputComponent = field => {
     return (
