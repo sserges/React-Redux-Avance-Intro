@@ -22,7 +22,7 @@ export default class TodoApp extends Component {
   };
   render() {
     return (
-      <div className="body_content">
+      <div>
         <div className="row justify-content-center">
           <fieldset className="col-md-10 form-group">
             <label htmlFor="inputTodo" className="bmd-label-floating">

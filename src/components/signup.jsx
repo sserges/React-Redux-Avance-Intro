@@ -36,11 +36,7 @@ class Signup extends Component {
       // fields: {}
     } = this.props;
     return (
-      <form
-        style={{ margin: 50 }}
-        className="body_content"
-        onSubmit={handleSubmit(this.handleSubmit)}
-      >
+      <form onSubmit={handleSubmit(this.handleSubmit)}>
         <div className="row justify-content-md-center">
           <h1>Inscription</h1>
         </div>

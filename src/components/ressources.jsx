@@ -19,7 +19,7 @@ class Ressources extends Component {
 
   render() {
     return (
-      <div className="row body_content">
+      <div className="row">
         <div className="col">
           <button
             type="button"

@@ -13,10 +13,7 @@ class Signin extends Component {
 
   render() {
     return (
-      <form
-        className="body_content"
-        onSubmit={this.props.handleSubmit(this.handleSubmit)}
-      >
+      <form onSubmit={this.props.handleSubmit(this.handleSubmit)}>
         <div className="row justify-content-md-center">
           <h1>Connexion</h1>
         </div>
