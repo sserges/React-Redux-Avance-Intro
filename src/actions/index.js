@@ -4,7 +4,9 @@ import {
   SET_AUTHENTIFICATION,
   INCREMENT_ACTION_COUNT,
   ADD_RESSOURCE,
-  PARSE_MESSAGE
+  PARSE_MESSAGE,
+  PARSE_ERROR,
+  RESET_ERROR
 } from "./action-types";
 
 const BASE_URL = "http://localhost:3090";
@@ -84,4 +86,12 @@ export function getSpecialRessource() {
         console.log(error);
       });
   };
+}
+
+export function parseError(errorMessage) {
+  return { type: PARSE_ERROR, payload: errorMessage };
+}
+
+export function resetError() {
+  return { type: RESET_ERROR };
 }

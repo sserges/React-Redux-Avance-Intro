@@ -55,6 +55,11 @@ class Header extends Component {
               Ressources
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/todo">
+              Todo App
+            </Link>
+          </li>
           {this.renderAuthentificationLink()}
         </ul>
       </div>

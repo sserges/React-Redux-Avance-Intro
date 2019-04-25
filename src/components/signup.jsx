@@ -32,8 +32,8 @@ class Signup extends Component {
 
   render() {
     const {
-      handleSubmit,
-      fields: {}
+      handleSubmit
+      // fields: {}
     } = this.props;
     return (
       <form
