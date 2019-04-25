@@ -5,6 +5,6 @@ export const actionCounter = store => next => action => {
   if (action.type !== INCREMENT_ACTION_COUNT) {
     store.dispatch(incrementActionCount());
   }
-  console.log(action);
+  // console.log(action);
   next(action);
 };
