@@ -3,6 +3,8 @@ import * as actions from "../actions";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 
+import * as validations from "../validations";
+
 const FIELDS = {
   email: "email",
   password: "password",
@@ -18,6 +20,9 @@ class Signup extends Component {
         <fieldset className="col-md-4 form-group">
           <label className="bmd-label-floating">{field.label}</label>
           <input {...field.input} type={field.type} className="form-control" />
+          {field.meta.touched && field.meta.error && (
+            <span className="error">{field.meta.error}</span>
+          )}
         </fieldset>
       </div>
     );
@@ -69,8 +74,14 @@ const mapStateToProps = state => {
   return {};
 };
 
-function validate(formProps) {
+function validate(formValues) {
   const errors = {};
+  errors.email = validations.validateEmail(formValues.email);
+  errors.password = validations.validateNotEmpty(formValues.password);
+  errors.secondPassword = validations.validateEqual(
+    formValues.password,
+    formValues.secondPassword
+  );
   return errors;
 }
 
