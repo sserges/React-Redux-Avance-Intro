@@ -7,6 +7,7 @@ import TodoApp from "../components/todo-app";
 import Ressources from "../components/ressources";
 import Signin from "../components/signin";
 import Signout from "../components/signout";
+import Signup from "../components/signup";
 import RequireAuthentification from "../helpers/require-authentification";
 
 require("../style.css");
@@ -25,6 +26,7 @@ export default class App extends Component {
           />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/signout" component={Signout} />
+          <Route exact path="/signup" component={Signup} />
         </Switch>
       </div>
     );
