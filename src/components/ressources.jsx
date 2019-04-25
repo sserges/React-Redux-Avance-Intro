@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { addRessource } from "../actions";
+import { addRessource, getSpecialRessource } from "../actions";
 import {
   getIntegerList,
   getContainsOneList,
@@ -10,6 +10,9 @@ import {
 } from "../selectors";
 
 class Ressources extends Component {
+  componentWillMount() {
+    this.props.getSpecialRessource();
+  }
   renderRessource = ressources => {
     return ressources.map(ressource => <li key={ressource}>{ressource}</li>);
   };
@@ -42,6 +45,7 @@ class Ressources extends Component {
           Entiers premiers contenants "1"
           <ul>{this.renderRessource(this.props.specialRessources)}</ul>
         </div>
+        {this.props.message}
       </div>
     );
   }
@@ -52,12 +56,14 @@ const mapStateToProps = state => {
     intergerRessources: getIntegerList(state),
     containsOneRessources: getContainsOneList(state),
     primeRessources: getPrimeNumberList(state),
-    specialRessources: getSpecialNumberList(state)
+    specialRessources: getSpecialNumberList(state),
+    message: state.ressource.message
   };
 };
 
 const mapDispatchToProps = {
-  addRessource
+  addRessource,
+  getSpecialRessource
 };
 
 export default connect(

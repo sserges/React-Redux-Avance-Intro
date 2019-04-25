@@ -1,7 +1,8 @@
-import { ADD_RESSOURCE } from "../actions/action-types";
+import { ADD_RESSOURCE, PARSE_MESSAGE } from "../actions/action-types";
 
 const initialState = {
-  ressourceList: [0]
+  ressourceList: [0],
+  message: ""
 };
 
 export default function RessourceReducer(state = initialState, action) {
@@ -12,6 +13,11 @@ export default function RessourceReducer(state = initialState, action) {
           ...state.ressourceList,
           state.ressourceList[state.ressourceList.length - 1] + 1
         ]
+      };
+    case PARSE_MESSAGE:
+      return {
+        ...state,
+        message: action.payload
       };
     default:
       return state;

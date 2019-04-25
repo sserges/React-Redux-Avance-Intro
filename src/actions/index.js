@@ -3,7 +3,8 @@ import axios from "axios";
 import {
   SET_AUTHENTIFICATION,
   INCREMENT_ACTION_COUNT,
-  ADD_RESSOURCE
+  ADD_RESSOURCE,
+  PARSE_MESSAGE
 } from "./action-types";
 
 const BASE_URL = "http://localhost:3090";
@@ -63,6 +64,21 @@ export function signupUser({ email, password }, history) {
         localStorage.setItem("token", response.data.token);
         dispatch(setAuthentification(true));
         history.push("/ressources");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+}
+
+export function getSpecialRessource() {
+  return function(dispatch) {
+    axios
+      .get(`${BASE_URL}/specialRessource`, {
+        headers: { authorization: localStorage.getItem("token") }
+      })
+      .then(response => {
+        dispatch({ type: PARSE_MESSAGE, payload: response.data.result });
       })
       .catch(error => {
         console.log(error);
