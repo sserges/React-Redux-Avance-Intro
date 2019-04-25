@@ -14,9 +14,11 @@ class Signup extends Component {
 
   renderInputComponent = field => {
     return (
-      <div className="form-group">
-        <label className="bmd-label-floating">{field.label}</label>
-        <input {...field.input} type={field.type} className="form-control" />
+      <div className="row justify-content-md-center">
+        <fieldset className="col-md-4 form-group">
+          <label className="bmd-label-floating">{field.label}</label>
+          <input {...field.input} type={field.type} className="form-control" />
+        </fieldset>
       </div>
     );
   };
@@ -32,7 +34,9 @@ class Signup extends Component {
         className="body_content"
         onSubmit={handleSubmit(this.handleSubmit)}
       >
-        <h1>Inscription</h1>
+        <div className="row justify-content-md-center">
+          <h1>Inscription</h1>
+        </div>
         <Field
           name={FIELDS.email}
           component={this.renderInputComponent}
@@ -51,9 +55,11 @@ class Signup extends Component {
           type="password"
           label="Mot de passe (répétez)"
         />
-        <button type="submit" className="btn btn-primary">
-          Inscription
-        </button>
+        <div className="row justify-content-md-center">
+          <button type="submit" className="btn btn-primary btn-raised">
+            Inscription
+          </button>
+        </div>
       </form>
     );
   }
