@@ -43,7 +43,7 @@ export function signinUser({ email, password }, history) {
         history.push("/ressources");
       })
       .catch(error => {
-        dispatch(parseError("Identifiants invalides"));
+        dispatch(parseError(error.response.data.message));
       });
   };
 }

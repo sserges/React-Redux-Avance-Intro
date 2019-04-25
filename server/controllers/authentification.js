@@ -1,5 +1,6 @@
 const loadsh = require("lodash");
 const jwt = require("jwt-simple");
+const passport = require("passport");
 
 const User = require("../models/user");
 const config = require("../../config");
@@ -46,5 +47,16 @@ exports.signup = function(req, res, next) {
 };
 
 exports.signin = function(req, res, next) {
-  res.json({ token: getTokenForUser(req.user) });
+  passport.authenticate("local", function(err, user, info) {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res
+        .status(500)
+        .send({ message: "Les identifiants sont invalides" });
+    } else {
+      res.json({ token: getTokenForUser(req.user) });
+    }
+  })(req, res, next);
 };
